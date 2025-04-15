@@ -1,7 +1,13 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'cypress/browsers:node-18.12.0-chrome107-ff107'
+      args '-u root'
+    }
+  }
+
   stages {
-    stage('Install dependencies') {
+    stage('Install deps') {
       steps {
         sh 'npm install'
       }
