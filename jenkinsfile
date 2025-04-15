@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'jenkins-cypress'
+      args '-v /dev/shm:/dev/shm'
+    }
+  }
 
   stages {
     stage('Install dependencies') {
