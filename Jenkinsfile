@@ -2,17 +2,16 @@ pipeline {
   agent {
     docker {
       image 'cypress/browsers:node-18.12.0-chrome107-ff107'
-      args '-u root'
     }
   }
 
   stages {
-    stage('Install deps') {
+    stage('Install') {
       steps {
         sh 'npm install'
       }
     }
-    stage('Run Cypress tests') {
+    stage('Run tests') {
       steps {
         sh 'npx cypress run'
       }
