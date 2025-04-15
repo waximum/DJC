@@ -6,12 +6,13 @@ pipeline {
   }
 
   stages {
-    stage('Install') {
+    stage('Install dependencies') {
       steps {
         sh 'npm install'
       }
     }
-    stage('Run tests') {
+
+    stage('Run Cypress tests') {
       steps {
         sh 'npx cypress run'
       }
